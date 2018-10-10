@@ -10,8 +10,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "lite-server": "^2.4.0"
   }
 }
