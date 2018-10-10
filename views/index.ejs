@@ -1,0 +1,285 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--
+
+Template 2091 Ziggy
+
+http://www.tooplate.com/view/2091-ziggy
+
+-->
+  <title>Betting Monkey DApp</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/fontAwesome.css">
+  <link rel="stylesheet" href="css/tooplate-style.css">
+
+  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+</head>
+
+<body>
+
+  <section class="first-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-content">
+            <h2>Welcome To Betting Monkey</h2>
+            <div class="line-dec"></div>
+            <span>This is our demo site for Blockchain technology</span>
+            <br />
+            <span>In the use case of building <strong>smart contract</strong> with <strong>Ethereum</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="second-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="img/ether.png" alt="">
+            </div>
+            <h4>Build unstoppable applications</h4>
+            <p>Ethereum is a decentralized platform that runs smart contracts - applications that run exactly as
+              programmed without any possibility of downtime, censorship, fraud or third-party interference.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="img/ethwallet.png" alt="">
+            </div>
+            <h4>Smart Money - Smart Wallet</h4>
+            <p>Ethereum allows you to hold and secure ether and other crypto-assets built on Ethereum, as well as
+              write, deploy and use smart contracts.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="img/crypto.png" alt="">
+            </div>
+            <h4>Design your own crytocurrency</h4>
+            <p>Create a tradeable digital token that can be used as a currency, a representation of an asset, a virtual
+              share, a proof of membership or anything at all.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="service-item">
+            <div class="icon">
+              <img src="img/moon-rocket.png" alt="">
+            </div>
+            <h4>Build a new kind of decentralized application</h4>
+            <p>Check out the <a href="https://www.stateofthedapps.com/" target="_blank">many great projects* </a>already
+              being built on Ethereum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="third-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="left-text col-md-12">
+            <h4>Game Summary</h4>
+            <p>Team MU: <strong id="percentTeam1">0</strong>%</p>
+          </div>
+          <div class="col-md-12">
+            <p>Team Chelsea: <strong id="percentTeam2">0</strong>%</p>
+          </div>
+          <div class="col-md-12">
+            <p>Minimum bet: 0.001 ether</p>
+          </div>
+          <div class="col-md-12">
+            <p>Total players: <strong id="totalPlayers"></strong></p>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="right-text col-md-12">
+            <h4>Bet for a team and win huge amount of Ether</h4>
+          </div>
+          <div class="col-md-3">
+            <strong style="color: white; size: 14;">How much ethers you want to bet? </strong>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Amount" id="betAmount">
+              <span class="input-group-addon">ether</span>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button id="submit" class="btn">Send Your Bet</button>
+          </div>
+          <div class="col-md-4">
+            <img id="loader" class="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
+          </div>
+
+          <div class="col-md-12">
+            <br />
+          </div>
+          <div class="col-md-12 alert-success-group alert-group">
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <strong>Hey there!</strong>
+              You have succesfully placed your bet: Team <span id="returnTeam"></span> - <span id="returnAmount"> ether</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-12 alert-error-group alert-group">
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <strong>Oops! Something happened! Or you've already placed your bet!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <br />
+          </div>
+
+          <div class="col-md-3 radio-group">
+            <img src="img/man-fc.png" alt="Team Manchester" class="icon">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="teams" id="team1" value="1" checked>
+                <p>Manchester United F.C.</p>
+              </label>
+            </div>
+          </div>
+          <div class="col-md-3 radio-group">
+            <img src="img/chelsea-fc.png" alt="Team Chelsea" class="icon">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="teams" id="team2" value="2">
+                <p>Chelsea F.C.</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li><a href="https://www.facebook.com/tooplate"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          </ul>
+          <p>Copyright &copy; 2018 Amir Rahafrouz - An Pham - Sunnat Samadov
+
+            | Design: <a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+  </script>
+
+  <script src="js/vendor/bootstrap.min.js"></script>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    $("#loader").hide();
+    // $('.alert-success-group').hide();
+    // $('.alert-error-group').hide();
+
+    // interacting with web3.js
+    if (typeof web3 !== 'undefined') {
+      // this is to use ropsten test net
+      web3 = new Web3(web3.currentProvider);
+    } else {
+      // set the provider you want from Web3.providers
+      web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+    }
+
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+    var monkeyContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"numerator","type":"uint256"},{"name":"denominator","type":"uint256"},{"name":"precision","type":"uint256"}],"name":"percent","outputs":[{"name":"quotient","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_player","type":"address"}],"name":"checkPlayerExists","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"playerInfo","outputs":[{"name":"amountBet","type":"uint256"},{"name":"selectedTeam","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_addr","type":"address"}],"name":"getPlayerInfo","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"endGame","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_selectedTeam","type":"uint256"}],"name":"bet","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_teamWinner","type":"uint256"}],"name":"payTheWinner","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"totalBetOne","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getPlayers","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalBetTwo","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minimumBet","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_receiver","type":"address"},{"name":"_amount","type":"uint256"}],"name":"send","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"maxAmountOfBets","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"betSummary","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"players","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"team","type":"uint256"},{"indexed":false,"name":"betAmount","type":"uint256"}],"name":"betInfo","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winnerTeam","type":"uint256"},{"indexed":false,"name":"betAmount","type":"uint256"},{"indexed":false,"name":"winnerAmount","type":"uint256"}],"name":"gameEnded","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winnerTeam","type":"uint256"},{"indexed":false,"name":"totalBetOne","type":"uint256"},{"indexed":false,"name":"totalBetTwo","type":"uint256"}],"name":"gameSummary","type":"event"}]);
+
+    var BettingMonkey = monkeyContract.at('0x2af9d998262862f122b53da9968702ebfc7c48fe');
+    console.log(BettingMonkey);
+
+    // update summary
+    BettingMonkey.betSummary((err, result) => {
+      if (result) {
+        $('#percentTeam1').html(result[0].c[0]/10);
+        $('#percentTeam2').html(result[1].c[0]/10);
+        $('#totalPlayers').html(result[2].c[0]);
+      } else {
+        $('#percentTeam1').html(0);
+        $('#percentTeam2').html(0);
+        $('#totalPlayers').html(0);
+      }
+    })
+
+    $("#submit").click(function () {
+      $("#loader").show();
+      var selectedTeam = $('input[name=teams]:checked').val();
+      var amount = $('#betAmount').val();
+      BettingMonkey.bet(selectedTeam, {
+        gas: 300000,
+        from: web3.eth.accounts[0],
+        value: web3.toWei(amount, 'ether')
+      }, (err, result) => {
+        $("#loader").hide();
+        $(".third-section .alert-error-group").show();
+        $(".third-section .alert-success-group").hide();
+        console.log(err);
+        console.log(result);
+      })
+    });
+
+    var betInfoEvent = BettingMonkey.betInfo({}, 'latest');
+    betInfoEvent.watch(function (error, result) {
+      if (result) {
+        var args = result.args;
+        $("#loader").hide();
+
+        $("#returnTeam").html(args.team.c[0]);
+        $("#returnAmount").html(web3.fromWei(args.betAmount.c[0], 'ether'));
+        $(".third-section .alert-success-group").show();
+        $(".third-section .alert-error-group").hide();
+      } else {
+        $("#loader").hide();
+        console.log(error);
+        $(".third-section .alert-error-group").show();
+        $(".third-section .alert-success-group").hide();
+      }
+    });
+  </script>
+</body>
+
+</html>
